@@ -1,5 +1,14 @@
 # Odoo Tools more used
 
+# Actualización
+```
+/etc/init.d/odoo stop
+su - odoo -s /bin/bash
+odoo -d db14-spain -u all --stop-after-init --logfile=/dev/stdout
+odoo -d db14-spain -u base_bim_2 --stop-after-init --logfile=/dev/stdout
+/etc/init.d/odoo start
+```
+
 # Model
 ```
 name = fields.Char('Code', default="New", copy=False)
