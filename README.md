@@ -19,7 +19,16 @@ name = fields.Char('Code', default="New", copy=False)
                 'programmed.payment') or "New"
         programmed_payment = super(ProgrammedPayment, self).create(vals)
         return programmed_payment
-```        
+```
+
+
+```
+@api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('bim.recurring.contract') or _('New')
+        return super().create(vals)
+```
+       
 
 # Views
 
