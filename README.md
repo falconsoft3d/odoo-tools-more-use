@@ -11,6 +11,16 @@ odoo -d db14-spain -u base_bim_2 --stop-after-init --logfile=/dev/stdout
 
 # Model
 ```
+import logging
+_logger = logging.getLogger(__name__)
+_logger.info("Purchase: {}".format(purchase.name))
+
+try:
+    invoice.js_assign_outstanding_line(line_id)
+except Exception as e:
+    _logger.info("ERROR: " + str(e))
+
+
 name = fields.Char('Code', default="New", copy=False)
 @api.model
     def create(self, vals):
